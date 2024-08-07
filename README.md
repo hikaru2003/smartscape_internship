@@ -1,2 +1,2 @@
 # smartscape_internship
-# smartscape_internship
+this is smartscape internship repo
