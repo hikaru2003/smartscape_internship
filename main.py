@@ -12,8 +12,8 @@ from src.smoothing import smoothing
 from src.homography import homography
 
 dirname = os.path.dirname(__file__)
-file1 = 'difficult_1.png'
-file2 = 'difficult_2.png'
+file1 = 'computer_1.png'
+file2 = 'computer_2.png'
 
 def diff_img(img1, img1_gray, img2_gray):
     # 画像サイズの調整
@@ -60,8 +60,9 @@ def main():
             print(f"Error deleting {file_path}: {e}")
             
     # 画像読み込み
-    # file1 = input('file1: ')
-    # file2 = input('file2: ')
+    file = input('file_type: ')
+    file1 = file + '_1.png'
+    file2 = file + '_2.png'
     img_1 = cv2.imread(dirname + '/sample/' + file1)
     img_2 = cv2.imread(dirname + '/sample/' + file2)
     cv2.imwrite(dirname + '/output/sample1.png', img_1)
@@ -102,24 +103,20 @@ def main():
     # split_img_2 = histgram_equalize(split_img_2, ver*hor)
     
     # 平均明度調整 <- 明度が高いほうの画像を低いほうの画像に合わせる <- そのほうが明るさの違いによる誤差分が小さくなる
-    # 画像全体の明度が高いほうの画像を低いほうの画像に合わせる
-    # img1_mean = np.mean(cv2.cvtColor(img_1, cv2.COLOR_RGB2GRAY))
-    # img2_mean = np.mean(cv2.cvtColor(img_2, cv2.COLOR_RGB2GRAY))
-    # if (img1_mean < img2_mean):
-    #     split_img_2 = adjust_images(split_img_1, split_img_2, ver*hor)
-    # else:
-    #     split_img_1 = adjust_images(split_img_2, split_img_1, ver*hor)
-
-    # 分割した各画像に対して明度が高いほうを低いほうの画像に合わせる(分割したすべての部分において明るいほうを暗いほうに合わせるのでより精度が高くなる)
-    for i in range(ver*hor):
-        img1_mean = np.mean(cv2.cvtColor(split_img_1[i], cv2.COLOR_RGB2GRAY))
-        img2_mean = np.mean(cv2.cvtColor(split_img_2[i], cv2.COLOR_RGB2GRAY))
-        if (img1_mean < img2_mean):
-            split_img_2[i] = adjust_image(split_img_1[i], split_img_2[i])
-            print('1')
-        else:
-            split_img_1[i] = adjust_image(split_img_2[i], split_img_1[i])
-            print('2')
+    # 画像全体の明度が10以上違うときは明度調整をする
+    img1_mean = np.mean(cv2.cvtColor(img_1, cv2.COLOR_RGB2GRAY))
+    img2_mean = np.mean(cv2.cvtColor(img_2, cv2.COLOR_RGB2GRAY))
+    if (np.abs(img1_mean - img2_mean) > 10):
+        # 分割した各画像に対して明度が高いほうを低いほうの画像に合わせる(分割したすべての部分において明るいほうを暗いほうに合わせるのでより精度が高くなる)
+        for i in range(ver*hor):
+            img1_mean = np.mean(cv2.cvtColor(split_img_1[i], cv2.COLOR_RGB2GRAY))
+            img2_mean = np.mean(cv2.cvtColor(split_img_2[i], cv2.COLOR_RGB2GRAY))
+            if (img1_mean < img2_mean):
+                split_img_2[i] = adjust_image(split_img_1[i], split_img_2[i])
+                # print('1')
+            else:
+                split_img_1[i] = adjust_image(split_img_2[i], split_img_1[i])
+                # print('2')
 
     # 画像の結合
     img_1 = merge_images(hor, ver, split_img_1)
@@ -133,7 +130,7 @@ def main():
     # for i in range(3):
     #     img_1_gray = cv2.bilateralFilter(img_1_gray, 15, 20, 20)
     #     img_2_gray = cv2.bilateralFilter(img_2_gray, 15, 20, 20)
-    # ノンローカルミーんフィルタ
+    # ノンローカルミーンフィルタ
     img_1 = cv2.fastNlMeansDenoisingColored(img_1,None,10,10,7,21)
     img_2 = cv2.fastNlMeansDenoisingColored(img_2,None,10,10,7,21)
     img_1_gray = cv2.cvtColor(img_1, cv2.COLOR_BGR2GRAY)
