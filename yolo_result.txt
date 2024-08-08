@@ -1,0 +1,106 @@
+file_type: computer_1.png results
+
+image 1/1 /home/hikaru/test/sample/computer_1.png: 480x640 1 bottle, 1 cup, 4 spoons, 1 banana, 2 dining tables, 2 books, 76.8ms
+Speed: 5.7ms preprocess, 76.8ms inference, 1.6ms postprocess per image at shape (1, 3, 480, 640)
+Results saved to [1mruns/detect/predict[0m
+Detected cup with confidence 0.00 at location 76, 282, 145, 361
+
+0: 640x576 (no detections), 96.6ms
+Speed: 1.6ms preprocess, 96.6ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 576)
+Results saved to [1mruns/detect/cropped_cup_result[0m
+detected items in cup
+Detected bottle with confidence 0.00 at location 129, 95, 198, 217
+
+0: 640x384 1 cake, 1 chair, 48.5ms
+Speed: 1.3ms preprocess, 48.5ms inference, 1.0ms postprocess per image at shape (1, 3, 640, 384)
+Results saved to [1mruns/detect/cropped_bottle_result[0m
+detected items in bottle
+Detected cake with confidence 0.00 at location 3, 2, 69, 121
+Detected chair with confidence 0.00 at location 46, 0, 68, 46
+Detected spoon with confidence 0.00 at location 250, 55, 292, 137
+
+0: 640x352 1 person, 1 tv, 51.4ms
+Speed: 1.2ms preprocess, 51.4ms inference, 1.0ms postprocess per image at shape (1, 3, 640, 352)
+Results saved to [1mruns/detect/cropped_spoon_result[0m
+detected items in spoon
+Detected tv with confidence 0.00 at location 24, 18, 42, 81
+Detected person with confidence 0.00 at location 18, 2, 42, 43
+Detected dining table with confidence 0.00 at location 1, 131, 618, 438
+
+0: 320x640 1 bottle, 1 cup, 1 dining table, 1 laptop, 1 keyboard, 46.8ms
+Speed: 1.3ms preprocess, 46.8ms inference, 1.0ms postprocess per image at shape (1, 3, 320, 640)
+Results saved to [1mruns/detect/cropped_dining table_result[0m
+detected items in dining table
+Detected laptop with confidence 0.00 at location 266, 0, 494, 178
+Detected cup with confidence 0.00 at location 262, 195, 324, 279
+Detected bottle with confidence 0.00 at location 132, 0, 200, 91
+Detected dining table with confidence 0.00 at location 2, 3, 561, 305
+Detected keyboard with confidence 0.00 at location 270, 85, 470, 135
+Detected dining table with confidence 0.00 at location 1, 132, 627, 346
+
+0: 224x640 1 bottle, 1 cup, 1 dining table, 1 laptop, 1 keyboard, 42.0ms
+Speed: 1.2ms preprocess, 42.0ms inference, 1.0ms postprocess per image at shape (1, 3, 224, 640)
+Results saved to [1mruns/detect/cropped_dining table_result2[0m
+detected items in dining table
+Detected laptop with confidence 0.00 at location 266, 0, 496, 176
+Detected bottle with confidence 0.00 at location 131, 0, 199, 88
+Detected dining table with confidence 0.00 at location 2, 1, 611, 214
+Detected keyboard with confidence 0.00 at location 272, 82, 474, 133
+Detected cup with confidence 0.00 at location 263, 194, 324, 214
+Detected spoon with confidence 0.00 at location 280, 56, 329, 137
+
+0: 640x416 (no detections), 61.9ms
+Speed: 1.6ms preprocess, 61.9ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 416)
+Results saved to [1mruns/detect/cropped_spoon_result2[0m
+detected items in spoon
+Detected spoon with confidence 0.00 at location 291, 55, 329, 125
+
+0: 640x352 1 cat, 38.3ms
+Speed: 1.0ms preprocess, 38.3ms inference, 1.0ms postprocess per image at shape (1, 3, 640, 352)
+Results saved to [1mruns/detect/cropped_spoon_result3[0m
+detected items in spoon
+Detected cat with confidence 0.00 at location 14, 2, 37, 18
+Detected banana with confidence 0.00 at location 171, 55, 213, 136
+
+0: 640x352 1 person, 32.8ms
+Speed: 1.3ms preprocess, 32.8ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 352)
+Results saved to [1mruns/detect/cropped_banana_result[0m
+detected items in banana
+Detected person with confidence 0.00 at location 4, 2, 41, 80
+Detected book with confidence 0.00 at location 416, 0, 638, 134
+
+0: 416x640 1 tv, 2 laptops, 1 cell phone, 1 book, 52.9ms
+Speed: 1.0ms preprocess, 52.9ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+Results saved to [1mruns/detect/cropped_book_result[0m
+detected items in book
+Detected laptop with confidence 0.00 at location 0, 72, 58, 132
+Detected tv with confidence 0.00 at location 0, 72, 58, 132
+Detected laptop with confidence 0.00 at location 5, 0, 217, 131
+Detected book with confidence 0.00 at location 5, 0, 221, 129
+Detected cell phone with confidence 0.00 at location 5, 0, 221, 129
+Detected spoon with confidence 0.00 at location 206, 56, 250, 137
+
+0: 640x352 1 person, 34.0ms
+Speed: 0.9ms preprocess, 34.0ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 352)
+Results saved to [1mruns/detect/cropped_spoon_result4[0m
+detected items in spoon
+Detected person with confidence 0.00 at location 1, 1, 44, 80
+Detected book with confidence 0.00 at location 258, 207, 496, 320
+
+0: 320x640 1 laptop, 1 keyboard, 30.9ms
+Speed: 0.6ms preprocess, 30.9ms inference, 0.5ms postprocess per image at shape (1, 3, 320, 640)
+Results saved to [1mruns/detect/cropped_book_result2[0m
+detected items in book
+Detected laptop with confidence 0.00 at location 8, 1, 234, 99
+Detected keyboard with confidence 0.00 at location 5, 1, 235, 100
+computer_2.png results
+
+image 1/1 /home/hikaru/test/sample/computer_2.png: 480x640 1 umbrella, 1 bottle, 1 cup, 1 dining table, 1 laptop, 1 keyboard, 47.2ms
+Speed: 0.9ms preprocess, 47.2ms inference, 0.6ms postprocess per image at shape (1, 3, 480, 640)
+Results saved to [1mruns/detect/cropped_book_result2[0m
+Detected laptop with confidence 0.95 at location 267, 72, 496, 311
+Detected cup with confidence 0.91 at location 264, 327, 325, 411
+Detected bottle with confidence 0.88 at location 132, 99, 201, 222
+Detected dining table with confidence 0.54 at location 2, 134, 632, 474
+Detected umbrella with confidence 0.28 at location 0, 21, 99, 110
+Detected keyboard with confidence 0.19 at location 277, 215, 469, 266
