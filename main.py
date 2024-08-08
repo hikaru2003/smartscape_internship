@@ -22,6 +22,13 @@ def diff_img(img1, img1_gray, img2_gray):
     cv2.imwrite(dirname + '/output/img_diff.png', img_diff)
     # 2値化
     ret2, img_th = cv2.threshold(img_diff, 40, 255, cv2.THRESH_BINARY)
+    # オープニング、クロージング
+    # kernel = np.ones((5,5),np.uint8)
+    # img_th = cv2.morphologyEx(img_th, cv2.MORPH_CLOSE, kernel)
+    # cv2.imwrite(dirname + '/output/closing.png', img_th)
+    # img_th = cv2.morphologyEx(img_th, cv2.MORPH_OPEN, kernel)
+    # cv2.imwrite(dirname + '/output/opening.png', img_th)
+    # 塗りつぶし
     img_th_rgb = cv2.cvtColor(img_th, cv2.COLOR_GRAY2RGB)
     img_th_rgb = np.where(img_th_rgb == (255, 255, 255), (0, 0, 255), img1)
     cv2.imwrite(dirname + '/output/img_th.png', img_th)
@@ -31,6 +38,7 @@ def diff_img(img1, img1_gray, img2_gray):
     cv2.drawContours(img1, contours, -1, (0, 0, 255), 2)
     # 画像を生成
     cv2.imwrite(dirname + '/output/diff.png', img1)
+    return img1
 
 # マスクを作成する関数
 def create_mask(warped_image):
@@ -68,17 +76,15 @@ def main():
     IMG_1 = img_1
     IMG_2 = img_2
 
-    # 画像サイズを同じにする
     h1, w1, c1 = img_1.shape
     h2, w2, c2 = img_2.shape
     height = h1 if h1 < h2 else h2
     width = w1 if w1 < w2 else w2
     print('height', height)
     print('width', width)
-    min_height = height / 30
-    min_width = width / 30
-    img_1 = cv2.resize(img_1, (int(width), int(height)))
-    img_2 = cv2.resize(img_2, (int(width), int(height)))
+    # 画像サイズ/同じにする
+    # img_1 = cv2.resize(img_1, (int(width), int(height)))
+    # img_2 = cv2.resize(img_2, (int(width), int(height)))
     
     # ホモグラフィ変換
     # img_2_gray = homography(img_2, img_1, n_matches, max_iters)
@@ -90,7 +96,7 @@ def main():
     
     # imgを横にhor個, 縦にver個に分割する
     ver = 8
-    hor = 4
+    hor = 8
     print('vertical', ver)
     print('horizontal', hor)
     split_img_1 = split_image(hor, ver, img_1)
@@ -106,6 +112,7 @@ def main():
     img2_mean = np.mean(cv2.cvtColor(img_2, cv2.COLOR_RGB2GRAY))
     if (np.abs(img1_mean - img2_mean) > 10):
         # 分割した各画像に対して明度が高いほうを低いほうの画像に合わせる(分割したすべての部分において明るいほうを暗いほうに合わせるのでより精度が高くなる)
+        print('adjust light')
         for i in range(ver*hor):
             img1_mean = np.mean(cv2.cvtColor(split_img_1[i], cv2.COLOR_RGB2GRAY))
             img2_mean = np.mean(cv2.cvtColor(split_img_2[i], cv2.COLOR_RGB2GRAY))
@@ -119,6 +126,9 @@ def main():
         img_1 = merge_images(hor, ver, split_img_1)
         img_2 = merge_images(hor, ver, split_img_2)
     
+    cv2.imwrite(dirname + '/output/adjust_light_1.png', img_1)
+    cv2.imwrite(dirname + '/output/adjust_light21.png', img_2)
+
     img_1_gray = cv2.cvtColor(img_1, cv2.COLOR_BGR2GRAY)
     img_2_gray = cv2.cvtColor(img_2, cv2.COLOR_BGR2GRAY)
     
@@ -143,7 +153,19 @@ def main():
     # img_diff = img_1.astype(int) - img_2.astype(int)
     # cv2.imwrite(dirname + '/output/color_diff.png', img_diff)
     # 差分画像の生成
-    diff_img(IMG_1, img_1_gray, img_2_gray)
+    result = diff_img(IMG_1, img_1_gray, img_2_gray)
+    
+    # min_height = min(IMG_1.shape[0], IMG_2.shape[0], result.shape[0])
+    # min_width = min(IMG_1.shape[1], IMG_2.shape[1], result.shape[1])
+    
+    # IMG_1_resized = cv2.resize(IMG_1, (min_width, min_height))
+    # IMG_2_resized = cv2.resize(IMG_2, (min_width, min_height))
+    # result_resized = cv2.resize(result, (min_width, min_height))
+    
+    # mergeImg = np.hstack((IMG_1_resized, IMG_2_resized, result_resized))
+    # cv2.imshow("sample", mergeImg)
+    # cv2.waitKey(0)
+    # cv2.destroyAllWindows()
 
 if __name__ == "__main__":
     main()

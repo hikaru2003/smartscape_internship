@@ -10,8 +10,8 @@ def smoothing(img1, img2, height, width):
     wsize = wsize if wsize % 2 == 1 else wsize + 1
     # if (hsize > 51): hsize = 51
     # if (wsize > 51): wsize = 51
-    # hsize = 11
-    # wsize = 11
+    # hsize = 5
+    # wsize = 5
     print('hsize', hsize)
     print('wsize', wsize)
     return cv2.GaussianBlur(img1,(wsize, hsize),0),\
