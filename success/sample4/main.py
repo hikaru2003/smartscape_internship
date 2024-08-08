@@ -128,13 +128,13 @@ def main():
     #     img_1_gray = cv2.bilateralFilter(img_1_gray, 15, 20, 20)
     #     img_2_gray = cv2.bilateralFilter(img_2_gray, 15, 20, 20)
     # ノンローカルミーンフィルタ
-    img_1 = cv2.fastNlMeansDenoisingColored(img_1,None,10,10,7,21)
-    img_2 = cv2.fastNlMeansDenoisingColored(img_2,None,10,10,7,21)
-    img_1_gray = cv2.cvtColor(img_1, cv2.COLOR_BGR2GRAY)
-    img_2_gray = cv2.cvtColor(img_2, cv2.COLOR_BGR2GRAY)
+    # img_1 = cv2.fastNlMeansDenoisingColored(img_1,None,10,10,7,21)
+    # img_2 = cv2.fastNlMeansDenoisingColored(img_2,None,10,10,7,21)
+    # img_1_gray = cv2.cvtColor(img_1, cv2.COLOR_BGR2GRAY)
+    # img_2_gray = cv2.cvtColor(img_2, cv2.COLOR_BGR2GRAY)
     
-    # smoothingの最後にsmoothing()を呼ばないと、画像端の切り取った部分が差分として認識されてしまう
-    img_1_gray, img_2_gray = smoothing(img_1_gray, img_2_gray, height, width)
+    # # smoothingの最後にsmoothing()を呼ばないと、画像端の切り取った部分が差分として認識されてしまう
+    # img_1_gray, img_2_gray = smoothing(img_1_gray, img_2_gray, height, width)
     cv2.imwrite(dirname + '/output/blur_1.png', img_1_gray)
     cv2.imwrite(dirname + '/output/blur_2.png', img_2_gray)
 
