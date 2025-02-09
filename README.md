@@ -1,12 +1,13 @@
 # smartscape_internship
+
 this is smartscape internship repo.
 
 project detail is described in [presentation.pdf](https://github.com/hikaru2003/smartscape_internship/blob/b7a7a876ade146a9a0ce620392877e8f6003f9fd/presentation.pdf).
 so please check it.
 
-# Quick Start
+## Quick Start
 
-## Set up
+### Set up
 
 ```sh
 mkdir venv output
@@ -16,7 +17,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## execution
+### execution
 
 ```sh
 python3 main.py
