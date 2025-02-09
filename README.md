@@ -1,5 +1,8 @@
 # smartscape_internship
-this is smartscape internship repo
+this is smartscape internship repo.
+
+project detail is described in [presentation.pptx](https://github.com/hikaru2003/smartscape_internship/blob/main/presentation.pptx).
+so please check it.
 
 # Quick Start
 
