@@ -1,9 +1,7 @@
 # smartscape_internship
 
-this is smartscape internship repo.
-
-project detail is described in [presentation.pdf](https://github.com/hikaru2003/smartscape_internship/blob/b7a7a876ade146a9a0ce620392877e8f6003f9fd/presentation.pdf).
-so please check it.
+This is smartscape internship repo.  
+Please take a look at [presentation.pdf](presentation.pdf) to check project detail.
 
 ## Quick Start
 
