@@ -47,5 +47,7 @@ there are several .png files.
 ## directory description
 
 In sample directory, set of sample images are stored. you can use these images as input.
+
 In success directory, there are successful images which the diff of two images is accurate.
+
 In result directory, there are some experiments of algorithms.
