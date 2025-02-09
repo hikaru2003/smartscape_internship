@@ -26,6 +26,7 @@ file_type: [file\ type]
 
 filetype is defined as sample/[filetype]_1.png.
 for example, if you want to take the difference between sample/chess_1.png and sample/chess_2.png, file type is chess.
+
 ```sh
 python3 main.py
 file_type: chess
